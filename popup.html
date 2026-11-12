@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <h1>网页朗读助手</h1>
+
+  <div class="btn-row">
+    <button id="btnReadPage" class="primary">朗读全文</button>
+    <button id="btnReadSel">朗读选区</button>
+  </div>
+  <div class="btn-row">
+    <button id="btnPause">暂停</button>
+    <button id="btnResume">继续</button>
+    <button id="btnStop" class="danger">停止</button>
+  </div>
+
+  <p id="status" class="status">未开始</p>
+
+  <label>语速 <span id="rateVal">1.0×</span>
+    <input type="range" id="rate" min="0.5" max="3" step="0.25" value="1" />
+  </label>
+  <label>音调 <span id="pitchVal">1.0</span>
+    <input type="range" id="pitch" min="0" max="2" step="0.1" value="1" />
+  </label>
+  <label>朗读引擎
+    <select id="engine">
+      <option value="piper">内置离线音色 · Piper 中文（不联网）</option>
+      <option value="system">系统音色（浏览器内置语音）</option>
+    </select>
+  </label>
+  <label>内置音色（仅离线引擎用）
+    <select id="piperVoice">
+      <option value="huayan">华燕 · 标准女声</option>
+      <option value="chaowen">超文 · 男声</option>
+      <option value="xiaoya">小雅 · 温柔女声</option>
+    </select>
+  </label>
+  <label>系统音色（仅“系统音色”引擎用）
+    <select id="voice"></select>
+  </label>
+  <div class="btn-row">
+    <button id="btnPreview">试听音色</button>
+    <button id="btnEmotion">情感语录模式</button>
+  </div>
+
+  <label class="check"><input type="checkbox" id="follow" checked /> 朗读时高亮段落并自动滚动跟随</label>
+  <label class="check"><input type="checkbox" id="ramp" /> 渐进加速：读久了自动一点点变快</label>
+
+  <p class="hint">隐私：内置离线音色在插件内部本地合成，文字不离开你的电脑，断网也能读；插件代码不含任何联网请求。系统音色里标「云端」的（如 Google 音色）会把文字发给浏览器厂商的服务器合成，介意隐私时请选标「本地」的音色或用内置离线引擎。开始朗读后，网页底部会出现悬浮播放器（上一段/下一段、加减速、进度和剩余时间）。鼠标停在段落左侧点 ▶ 可从那段开始读；选中文字时也会弹出「朗读」小按钮。快捷键：Alt+R 朗读 · Alt+S 停止。设置改动在重新开始朗读后生效（语速可即时调）。</p>
+
+  <script src="popup.js"></script>
+</body>
+</html>

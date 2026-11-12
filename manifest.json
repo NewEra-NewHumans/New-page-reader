@@ -1,0 +1,47 @@
+{
+  "action": {
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png"
+    },
+    "default_popup": "popup.html",
+    "default_title": "网页朗读助手"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "commands": {
+    "read-page-or-selection": {
+      "description": "朗读选中文字，没有选中则朗读全文",
+      "suggested_key": {
+        "default": "Alt+R"
+      }
+    },
+    "stop-reading": {
+      "description": "停止朗读",
+      "suggested_key": {
+        "default": "Alt+S"
+      }
+    }
+  },
+  "description": "把网页文字读给你听：内置 Piper 中文离线音色（模型打包在插件里，本地合成、断网可用、文字不上传），也可切换系统音色。悬浮播放器、段落高亮跟随、悬停点播、选区朗读，参考 Speechify 的核心体验。",
+  "icons": {
+    "128": "icons/icon128.png",
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png"
+  },
+  "manifest_version": 3,
+  "name": "网页朗读助手",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "contextMenus",
+    "storage",
+    "offscreen"
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; worker-src 'self'; object-src 'self'"
+  },
+  "version": "3.2.1"
+}
